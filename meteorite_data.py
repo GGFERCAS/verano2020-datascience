@@ -24,24 +24,38 @@ def process_meteorites(contents):
             yield meteor
 
 
+
 def get_mass(meteor):
     return meteor["mass (g)"]
 
 def get_name_lenght(meteor):
     return len(meteor["name"])
 
+def get_mass_(meteor):
+    meteor_name_ = input('Enter meteorite name to search mass: ')
+    if meteor_name_ in meteorites:
+        return meteor(meteor_name_["mass (g)"])
+
+
+    
+
 meteorites = process_meteorites(contents)
 
-largest_mass = max(meteorites, key=get_mass)
 
-# longest_name = max(meteorites, key=get_name_lenght)
 
-print()
-print("largest mass:", largest_mass)
-print()
-print()
-# print("Longest name:", longest_name)
-print()
+# largest_mass = max(meteorites, key=get_mass)
+
+search = max(meteorites, key=get_mass_)
+
+# # longest_name = max(meteorites, key=get_name_lenght)
+
+# print()
+# print()
+# # print("Longest name:", longest_name)
+# # print("largest mass:", largest_mass)
+print(search)
+# print()
+# print()
 
 
 file.close()
