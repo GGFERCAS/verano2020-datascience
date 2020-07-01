@@ -1,13 +1,13 @@
 # import sys
 
 def eager_total(maximun):
-    numbers = []
+    integers = []
     for i in range(maximun):
-        numbers.append(i)
-    # print("Size:", sys.getsizeof(numbers))
-    # print(numbers[:10], numbers[-10:])
-    # return sum(numbers)
-    return numbers
+        integers.append(i)
+    # print("Size:", sys.getsizeof(integers))
+    # print(integers[:10], integers[-10:])
+    # return sum(integers)
+    return integers
 
 def lazy_total(maximun):
     for i in range(maximun):
