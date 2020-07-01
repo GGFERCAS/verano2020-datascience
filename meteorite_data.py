@@ -6,39 +6,22 @@ contents = csv.reader(file)
 
 
 
-meteorites = []
 processor = [str, int, str, str, float, str, str, float, float, str]
 
-column_names = next(contents)
-for row in contents:
-    processed_data = []
-    for proc, data in zip(processor, row):
-        try:
-            processed_data.append(proc(data))
-        except ValueError:
-            continue
-#    meteor = {column_names[i]: row[i] for i in range(len(column_names))}
-#    meteor = {column_names[i]: row[i] for i in zip(column_names, row)}
-    meteor = {name: data for name, data in zip(column_names, processed_data)}
 
-   #region meteor = {
-   #    "name": row[0],
-   #    "id": row[1],
-   #    "nametype": row[2],
-   #    "recclass": row[3],
-   #    "mass (g)": row[4],
-   #    "fall": row[5],
-   #    "year": row[6],
-   #    "reclat": row[7],
-   #    "reclong": row[8],
-   #    "GeoLocation": row[9],
-   #    
-   # endregion}
+def process_meteorites(contents):
+    column_names = next(contents)
+    for row in contents:
+        processed_data = []
+        for proc, data in zip(processor, row):
+            try:
+                processed_data.append(proc(data))
+            except ValueError:
+                break
 
-
-
-
-    meteorites.append(meteor)
+        else:
+            meteor = {name: data for name, data in zip(column_names, processed_data)}
+            yield meteor
 
 
 def get_mass(meteor):
@@ -52,7 +35,12 @@ largest_mass = max(meteorites, key=get_mass)
 
 longest_name = max(meteorites, key=get_name_lenght)
 
+print()
 print("largest mass:", largest_mass)
+print()
+print()
 print("Longest name:", longest_name)
+print()
+
 
 file.close()
