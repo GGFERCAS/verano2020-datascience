@@ -30,16 +30,17 @@ def get_mass(meteor):
 def get_name_lenght(meteor):
     return len(meteor["name"])
 
+meteorites = process_meteorites(contents)
 
 largest_mass = max(meteorites, key=get_mass)
 
-longest_name = max(meteorites, key=get_name_lenght)
+# longest_name = max(meteorites, key=get_name_lenght)
 
 print()
 print("largest mass:", largest_mass)
 print()
 print()
-print("Longest name:", longest_name)
+# print("Longest name:", longest_name)
 print()
 
 
