@@ -14,7 +14,14 @@ class Car:
     def print_info(self):
         print("Car is current at:", self.position, "with an speed of:", self.speed, end='\r')
 
+    def __add__(self, other):
+        return Car(self.speed + other.custom_speed)
 
+    def __repr__(self):
+        return "Car with speed " + str(self.speed)
+    
+    def __call__(self):
+        return "You called the car you crazy person"
 
 
 # nicos_car = Car()
