@@ -1,22 +1,23 @@
 
 class Car:
-    def create_new(name, speed):
-        car_info = {
-            "name": name,
-            "position": 0,
-            "speed": speed,
+    def __init__(self, name, speed):
+        self = {
+        self.name = name
+        self.position = 0
+        self.speed = speed
         }
-        return car_info
+        return self
     
-    def move(car_info):
-        car_info["position"] += car_info["speed"]
-        print(car_info["name"] + " is a now at position " + str(car_info["position"]))
+    def move(self):
+        self.position += self.speed
+        print(self.name+  "is a now at position"  + str(self.position))
 
-gonzalos_car = Car
-gonzalos_info = gonzalos_car.create_new("Gonzalo", 100)
+gonzalos_car = Car("Gonzalo", 100)
 
+gonzalos_car.move()
+gonzalos_car.move()
 
-gonzalos_car.move(gonzalos_info)
-gonzalos_car.move(gonzalos_info)
+diegos_car = Car("Diego", 50)
 
-
+diegos_car = Car()
+diegos_car = Car()
