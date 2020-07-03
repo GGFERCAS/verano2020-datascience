@@ -2,9 +2,9 @@
 class Car:
     def create_new(name, speed):
         car_info = {
-            "name": name
-            "position": position
-            "speed": speed
+            "name": name,
+            "position": position,
+            "speed": speed,
         }
         return car_info
     
@@ -18,3 +18,5 @@ gonzalos_info = gonzalos_car.create_new("Gonzalo", 100)
 
 gonzalos_car.move(gonzalos_info)
 gonzalos_car.move(gonzalos_info)
+
+
