@@ -1,36 +1,20 @@
 
 class Car:
-
-    def create_new():
-        position = 0
-        speed = 10
-        return position, speed
-
-
-    def move(position, speed):
-        position += speed
-        print("Car is now at position " + str(position))
-        return position, speed
-
+    def create_new(name, speed):
+        car_info = {
+            "name": name
+            "position": position
+            "speed": speed
+        }
+        return car_info
+    
+    def move(car_info):
+        car_info["position"] += car_info["speed"]
+        print(car_info["name"] + " is a now at position " + str(car_info["position"] + " he is going at " + str(car_info[speed]) + "KM."))
 
 gonzalos_car = Car
-gonzalos_info = gonzalos_car.create_new()
+gonzalos_info = gonzalos_car.create_new("Gonzalo", 100)
 
 
-
-gonzalos_info = gonzalos_car.move(*gonzalos_info)
-gonzalos_info = gonzalos_car.move(*gonzalos_info)
-gonzalos_info = gonzalos_car.move(*gonzalos_info)
-
-
-diegos_car = Car
-diegos_info = diegos_car.create_new()
-
-
-
-diegos_info = diegos_car.move(*diegos_info)
-diegos_info = diegos_car.move(*diegos_info)
-diegos_info = diegos_car.move(*diegos_info)
-
-
-
+gonzalos_car.move(gonzalos_info)
+gonzalos_car.move(gonzalos_info)
