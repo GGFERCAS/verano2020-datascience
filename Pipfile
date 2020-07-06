@@ -11,5 +11,6 @@ pylint = "*"
 matplotlib = "*"
 pandas = "*"
 
+
 [requires]
 python_version = "3.8"
