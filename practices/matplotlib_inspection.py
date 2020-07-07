@@ -5,12 +5,16 @@ import numpy as np
 from matplotlib import pyplot
 
 
-# Defined the values of x and y axes. Change the line colour.
+# Defined x_coords and colours as red, yellob and blue
+colours = "ryb"
 x_coords = np.arange(1, 11, 0.001)
-y_coords = [math.sin(x) for x in x_coords]
 
-# Made a table using our x_coords and our y_coords.  Change the line colour.
-pyplot.plot(x_coords, y_coords, "r")
+# Defined the value of y axe
+for i in range(1, 4):
+    y_coords = np.sin(x_coords + i) * i
+    # Made a table using our x_coords and our y_coords.  Change the line colour.
+    pyplot.plot(x_coords, y_coords, colours[i - 1] + "x")
+
 
 # Made x and y axis limits
 # pyplot.xlim(0, 10)
