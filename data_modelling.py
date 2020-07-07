@@ -1,5 +1,4 @@
 import os
-from termcolor import colored
 import time
 
 class Car:
