@@ -1,11 +1,6 @@
 
-import time
-import os
+import datetime
 
-while True:
-    print(time.time())
-    time.sleep(1)
-    os.system('cls')
-
-
+right_now = datetime.datetime.now()
+print(right_now.strftime("%X"))
 
