@@ -16,12 +16,13 @@ def parse_year_string(year_string):
 
     return datetime.datetime.strptime(year_string, format_pattern).year
 
-
 converters = {
     "year": parse_year_string
 }
 
 meteorites = pd.read_csv("meteorites.csv", converters=converters)
+
+meteorites = meteorites[meteorites.year != 0]
 
 figures, axes = pyplot.subplots()
 
@@ -35,5 +36,5 @@ for mass in meteorites["mass (g)"]:
     size = map_value(mass, 0, 6000000, 1, 200)
     sizes.append(size)
 
-axes.scatter(meteorites.year, meteorites.reclat)
+axes.scatter(meteorites.year, meteorites.reclat, s=sizes, alpha=0.5)
 pyplot.show()
