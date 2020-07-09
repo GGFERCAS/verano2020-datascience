@@ -1,8 +1,27 @@
 
 import pandas as pd
+import datetime
 from matplotlib import pyplot
 
-meteorites = pd.read_csv("meteorites.csv")
+
+def parse_year_string(year_string):
+    if not year_string:
+        return 0
+    
+    if year_string[-1] == "M":
+        format_pattern = "%m/%d/%Y %I:%M:%S %p"
+
+    else:
+        format_pattern = "%m/%d/%Y %H:%M:%S"
+
+    return datetime.datetime.strptime(year_string, format_pattern).year
+
+
+converters = {
+    "year": parse_year_string
+}
+
+meteorites = pd.read_csv("meteorites.csv", converters=converters)
 
 figures, axes = pyplot.subplots()
 
@@ -17,5 +36,4 @@ for mass in meteorites["mass (g)"]:
     sizes.append(size)
 
 axes.scatter(meteorites.year, meteorites.reclat)
-pyplot.show
-
+pyplot.show()
