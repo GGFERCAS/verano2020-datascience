@@ -30,11 +30,14 @@ figures, axes = pyplot.subplots()
 def map_value(value, min_value, max_value, lower, upper):
     return (value - min_value) / (max_value- min_value) * (upper - lower) + lower
 
-sizes = []
 
-for mass in meteorites["mass (g)"]:
-    size = map_value(mass, 0, 6000000, 1, 200)
-    sizes.append(size)
-
-axes.scatter(meteorites.year, meteorites.reclat, s=sizes, alpha=0.5)
+step = 20
+for lat in range(0, 180, 20):
+    selected = meteorites[meteorites.reclong < (lat + step)]
+    selected = meteorites[meteorites.reclong > lat]
+    sizes = []
+    for mass in selected["mass (g)"]:
+        size = map_value(mass, 0, 6000000, 1, 200)
+        sizes.append(size)
+    axes.scatter(selected.year, selected.reclat, s=sizes, alpha=0.5)
 pyplot.show()
