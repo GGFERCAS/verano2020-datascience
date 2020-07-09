@@ -23,12 +23,16 @@ converters = {
 meteorites = pd.read_csv("meteorites.csv", converters=converters)
 
 meteorites = meteorites[meteorites.year != 0]
+ 
+
+pyplot.style.use("fivethirtyeight")
 
 figures, axes = pyplot.subplots()
 
 
 def map_value(value, min_value, max_value, lower, upper):
     return (value - min_value) / (max_value- min_value) * (upper - lower) + lower
+
 
 
 step = 20
@@ -40,4 +44,6 @@ for lat in range(0, 180, 20):
         size = map_value(mass, 0, 6000000, 1, 200)
         sizes.append(size)
     axes.scatter(selected.year, selected.reclat, s=sizes, alpha=0.5)
+
+
 pyplot.show()
