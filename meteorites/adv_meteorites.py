@@ -36,7 +36,7 @@ def map_value(value, min_value, max_value, lower, upper):
 
 
 step = 20
-for lat in range(0, 180, 20):
+for lat in range(0, 180, step):
     selected = meteorites[meteorites.reclong < (lat + step)]
     selected = meteorites[meteorites.reclong > lat]
     sizes = []
