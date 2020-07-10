@@ -5,10 +5,10 @@ filename = "fatal-police-shootings-data.csv"
 file = open(filename, "r", encoding="utf-8")
 contents = csv.reader(file)
 
-processors = [int, str, str, str, str, int, str, str, str, str, str, str, str, str]
-
+policemen = []
+column_names = next(contents)
 for row in contents:
-    meteor = {
+    policeman = {
         "id": row[0],
         "name": row[1],
         "date": row[2],
@@ -24,3 +24,23 @@ for row in contents:
         "flee": row[12], 
         "body_camera": row[13],  
     }
+    if not policeman["age"] == '':
+        policeman["age"] = int(policeman["age"])
+    else:
+        continue
+
+    policemen.append(policeman)
+
+
+def age_policeman(policeman):
+    return policeman["age"]
+
+
+def average_age(policeman):
+    ages = list(map(age_policeman, policemen))
+    total_ages = sum(ages)
+    number_of_ages = len(ages)
+    average_ages = total_ages / number_of_ages
+    print(average_ages)
+
+average_age(policeman)
