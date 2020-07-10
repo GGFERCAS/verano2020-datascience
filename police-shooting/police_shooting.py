@@ -47,6 +47,7 @@ def average_age(policeman):
 
 average_age(policeman)
 x_axis = policeman["city"]
-y_axis = policeman["thread_level"]
+y_axis = policeman["threat_level"]
 
-pyplot.char()
+pyplot.bar(x_axis, y_axis)
+pyplot.show()
