@@ -1,5 +1,7 @@
 
 import csv
+from matplotlib import pyplot
+
 
 filename = "fatal-police-shootings-data.csv"
 file = open(filename, "r", encoding="utf-8")
@@ -44,3 +46,7 @@ def average_age(policeman):
     print(average_ages)
 
 average_age(policeman)
+x_axis = policeman["city"]
+y_axis = policeman["thread_level"]
+
+pyplot.char()
