@@ -1,4 +1,9 @@
 import csv
+import os
+
+
+full_path = os.path.abspath(__file__)
+os.chdir(os.path.dirname(full_path))
 
 
 filename = "meteorites.csv"
